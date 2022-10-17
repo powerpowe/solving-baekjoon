@@ -16,13 +16,11 @@ K = int(input())
 len_memory, dir_memory = [], []
 max_width, max_height = 0, 0
 concave_area = -1
-
 for i in range(6):
     direction, length = (int(x) for x in input().split())
     dir_memory.append(direction)
     len_memory.append(length)
 
-    # max_width, max_height를 찾아 오목한 부분까지 포함시킨 전체 사각형 넓이 구함.
     if direction in [1, 2]:
         max_width = max(max_width, length)
     else:
@@ -30,12 +28,15 @@ for i in range(6):
 
 whole_area = max_width * max_height
 
-# 오목한 부분의 넓이 구하기
-len_memory.extend(len_memory[0:2])
-dir_memory.extend(dir_memory[0:2])
+len_memory.extend(len_memory[:3])
+dir_memory.extend(dir_memory[:3])
 
-for j in range(2, 8):
+for j in range(3, 9):
     if dir_memory[j - 2] == dir_memory[j] and dir_memory[j - 3] == dir_memory[j - 1]:
         concave_area = len_memory[j - 1] * len_memory[j - 2]
 
 print(K * (whole_area - concave_area))
+
+
+
+
