@@ -13,36 +13,36 @@ import sys
 data = deque([])
 
 input = sys.stdin.readline
-for _ in range(int(input())):  # O(N)
+for _ in range(int(input())):
     temp = input().split()
 
-    if len(temp) == 2:  # O(1)
+    if len(temp) == 2:
         data.append(temp[1])
 
     else:
         order = temp[0]
 
-        if order == 'pop':  # O(1)
+        if order == 'pop':
             if len(data):
                 print(data.popleft())
 
             else:
                 print(-1)
 
-        elif order == 'size':  # O(1)
+        elif order == 'size':
             print(len(data))
 
-        elif order == 'empty':  # O(1)
+        elif order == 'empty':
             print(0 if len(data) else 1)
 
-        elif order == 'front':  # O(1)
+        elif order == 'front':
             if len(data):
                 print(data[0])
 
             else:
                 print(-1)
 
-        elif order == 'back':  # O(1)
+        elif order == 'back':
             if len(data):
                 print(data[-1])
 
